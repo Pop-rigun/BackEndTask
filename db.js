@@ -22,8 +22,8 @@ const startDB = () =>{
  });
 }
 
-
-function writePDF (result) {
+// создание pdf, расположение данных, сохранение в дб
+function writePDF (result) { 
     let doc = new jsPDF()
     let imgData =Buffer.from(result[0]['image'], 'base64').toString()
     doc.setFontSize(40)
@@ -35,10 +35,10 @@ function writePDF (result) {
             return console.error("Ошибка записи: " + err.message)
         }
     })
-    doc.save('test.pdf')
+    // doc.save('test.pdf') для проверки
 }
 
-
+// поиск пользователя в дб
 function findByName(userName) {
     return new Promise((resolve, reject) => {
         let temp = false
